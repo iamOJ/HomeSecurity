@@ -53,3 +53,15 @@ else
   //Serial.println("Locked");
 digitalWrite(lock, LOW); //Else if there was not a complete match, keep the lock high(locked)
 }
+
+
+/* FOR TESTING
+Serial.print(final[0]);Serial.print(final[1]);Serial.print(final[2]);Serial.print(final[3]);
+Serial.print(" | ");
+Serial.print(correct[0]);Serial.print(correct[1]);Serial.print(correct[2]);Serial.print(correct[3]);
+Serial.print(" ");
+Serial.print(pass_correct);
+Serial.println("");
+*/
+delay(500);
+}
