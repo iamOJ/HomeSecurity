@@ -6,6 +6,6 @@ The device will take the pin input from your phone, check if it is correct, and 
 The communication will be done through Bluetooth medium which is available in any mobile device these days.
 
 ## Architecture
-The architectire of the Arduino hardware is as follows:
+The architecture of the Arduino hardware is as follows:
 
-<img src = "bluetoothlock3.png">
+<img src = "bluetoothlock.png">
