@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     {
         pairedDevices = myBluetooth.getBondedDevices();
         ArrayList list = new ArrayList();
-        //Log.i("PairedDevices",pairedDevices.toString());
+        Log.i("PairedDevices",pairedDevices.toString());
         if (pairedDevices.size()>0)
         {
             for(BluetoothDevice bt : pairedDevices)
@@ -82,24 +82,18 @@ public class MainActivity extends AppCompatActivity {
 
         final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1, list);
         devicelist.setAdapter(adapter);
-        devicelist.setOnClickListener(myListClickListener);
+        devicelist.setOnItemClickListener(myListClickListener);
     }
 
-    private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener()
-    {
-        public void onItemClick (AdapterView<?> av, View v, int arg2, long arg3)
-        {
+    private AdapterView.OnItemClickListener myListClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
             // Get the device MAC address, the last 17 chars in the View
-            String info = ((TextView) v).getText().toString();
+            String info = ((TextView) view).getText().toString();
             String address = info.substring(info.length() - 17);
 
-            // Make an intent to start next activity.
-            Intent i = new Intent(MainActivity.this, lockControl.class);
-
-            //Change the activity.
-            i.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
-            startActivity(i);
+            Log.i("Name",""+info);
+            Log.i("address",""+address);
         }
     };
-
 }
