@@ -94,6 +94,13 @@ public class MainActivity extends AppCompatActivity {
 
             Log.i("Name",""+info);
             Log.i("address",""+address);
+
+            // Make an intent to start next activity.
+                    Intent tent = new Intent(MainActivity.this, PinCheck.class);
+
+            //Change the activity.
+            tent.putExtra(EXTRA_ADDRESS, address); //this will be received at ledControl (class) Activity
+            startActivity(tent);
         }
     };
 }
