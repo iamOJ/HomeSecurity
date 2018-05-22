@@ -115,7 +115,7 @@ public class PinCheck extends AppCompatActivity {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 try {
-                    if (i != KeyEvent.KEYCODE_DEL) {
+                    if (i == KeyEvent.ACTION_DOWN) {
                         Selection.setSelection((Editable) p4.getText(), p4.getSelectionStart());
                         if (view != null) {
                             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
