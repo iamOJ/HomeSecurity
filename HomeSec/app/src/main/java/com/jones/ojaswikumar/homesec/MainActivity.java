@@ -1,6 +1,7 @@
 package com.jones.ojaswikumar.homesec;
 
 import android.content.Intent;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.bluetooth.BluetoothAdapter;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnPaired;
     ListView devicelist;
+    SwipeRefreshLayout mswipeRefreshLayout;
 
     private BluetoothAdapter myBluetooth = null;
     private Set<BluetoothDevice> pairedDevices;
@@ -32,7 +34,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnPaired = (Button)findViewById(R.id.button);
-        devicelist = (ListView) findViewById(R.id.listView);
+        devicelist = (ListView) findViewById(R.id.list);
+        mswipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         //if the device has bluetooth
         myBluetooth = BluetoothAdapter.getDefaultAdapter();
 
@@ -50,7 +53,14 @@ public class MainActivity extends AppCompatActivity {
             Intent turnBTon = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(turnBTon,1);
         }
-
+        mswipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.i("Log","Refreshed");
+                pairedDevicesList();
+                mswipeRefreshLayout.setRefreshing(false);
+            }
+        });
         btnPaired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
