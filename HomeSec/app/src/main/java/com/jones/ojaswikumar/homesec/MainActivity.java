@@ -20,7 +20,7 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnPaired;
+    //Button btnPaired;
     ListView devicelist;
     SwipeRefreshLayout mswipeRefreshLayout;
 
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnPaired = (Button)findViewById(R.id.button);
+        //btnPaired = (Button)findViewById(R.id.button);
         devicelist = (ListView) findViewById(R.id.list);
         mswipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
         //if the device has bluetooth
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 mswipeRefreshLayout.setRefreshing(false);
             }
         });
+        /*
         btnPaired.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 pairedDevicesList();
             }
         });
+        */
     }
 
 
